@@ -8,10 +8,9 @@ import static org.hamcrest.Matchers.is;
 import com.balindam.catalog_service.AbstractIT;
 import com.balindam.catalog_service.domain.Product;
 import io.restassured.http.ContentType;
+import java.math.BigDecimal;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.context.jdbc.Sql;
-
-import java.math.BigDecimal;
 
 @Sql("/test-data.sql")
 class ProductControllerTest extends AbstractIT {
@@ -47,7 +46,8 @@ class ProductControllerTest extends AbstractIT {
 
         assertThat(product.code()).isEqualTo("P200");
         assertThat(product.name()).isEqualTo("The Night Circus");
-        assertThat(product.description()).isEqualTo("The Circus arrives without warning… but it will leave you changed forever.");
+        assertThat(product.description())
+                .isEqualTo("The Circus arrives without warning… but it will leave you changed forever.");
         assertThat(product.price()).isEqualTo(new BigDecimal("25.99"));
     }
 

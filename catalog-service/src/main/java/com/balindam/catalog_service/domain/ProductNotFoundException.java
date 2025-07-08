@@ -1,6 +1,6 @@
 package com.balindam.catalog_service.domain;
 
-public class ProductNotFoundException  extends  RuntimeException {
+public class ProductNotFoundException extends RuntimeException {
     ProductNotFoundException(String message) {
         super(message);
     }
