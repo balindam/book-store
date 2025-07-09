@@ -34,22 +34,28 @@ class RabbitMQConfig {
 
     @Bean
     Queue deliveredOrdersQueue() {
-        return QueueBuilder.durable(applicationProperties.deliveredOrdersQueue()).build();
+        return QueueBuilder.durable(applicationProperties.deliveredOrdersQueue())
+                .build();
     }
 
     @Bean
     Binding deliveredOrdersQueueBinding() {
-        return BindingBuilder.bind(deliveredOrdersQueue()).to(exchange()).with(applicationProperties.deliveredOrdersQueue());
+        return BindingBuilder.bind(deliveredOrdersQueue())
+                .to(exchange())
+                .with(applicationProperties.deliveredOrdersQueue());
     }
 
     @Bean
     Queue cancelledOrdersQueue() {
-        return QueueBuilder.durable(applicationProperties.cancelledOrdersQueue()).build();
+        return QueueBuilder.durable(applicationProperties.cancelledOrdersQueue())
+                .build();
     }
 
     @Bean
     Binding cancelledOrdersQueueBinding() {
-        return BindingBuilder.bind(cancelledOrdersQueue()).to(exchange()).with(applicationProperties.cancelledOrdersQueue());
+        return BindingBuilder.bind(cancelledOrdersQueue())
+                .to(exchange())
+                .with(applicationProperties.cancelledOrdersQueue());
     }
 
     @Bean
