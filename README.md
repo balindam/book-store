@@ -1,2 +1,2 @@
 # Book Store using microservice in Spring Boot
-[![Catalog Service](https://github.com/balindam/book-store/actions/workflows/catalog-service.yml/badge.svg?branch=main)](https://github.com/balindam/book-store/actions/workflows/catalog-service.yml)
+[![Catalog Service](https://github.com/balindam/book-store/actions/workflows/catalog-service.yml/badge.svg?branch=main)](https://github.com/balindam/book-store/actions/workflows/catalog-service.yml) [![order-service.yml](https://github.com/balindam/book-store/actions/workflows/order-service.yml/badge.svg?branch=main)](https://github.com/balindam/book-store/actions/workflows/order-service.yml)

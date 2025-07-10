@@ -1,4 +1,4 @@
-name: order-service.yml
+name: Order Service
 on:
   push:
     paths:
