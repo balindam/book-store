@@ -13,7 +13,7 @@ create table orders
     delivery_address_line2      text,
     delivery_address_city       text not null,
     delivery_address_state      text not null,
-    delivery_address_zipcode    text not null,
+    delivery_address_zip_code    text not null,
     delivery_address_country    text not null,
     status                      text not null,
     comments                    text,

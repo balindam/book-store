@@ -1,4 +1,4 @@
-package com.balindam.order_service.web;
+package com.balindam.order_service.web.controller;
 
 import com.balindam.order_service.domain.OrderService;
 import com.balindam.order_service.domain.SecurityService;

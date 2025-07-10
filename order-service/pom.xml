@@ -31,6 +31,7 @@
 		<spring-cloud.version>2025.0.0</spring-cloud.version>
 		<spotless-maven-plugin.version>2.44.4</spotless-maven-plugin.version>
 		<dockerImageName>balindambajpai/bookstore-${project.artifactId}</dockerImageName>
+		<instancio.version>5.4.1</instancio.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -120,6 +121,13 @@
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.instancio/instancio-junit -->
+		<dependency>
+			<groupId>org.instancio</groupId>
+			<artifactId>instancio-junit</artifactId>
+			<version>${instancio.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
