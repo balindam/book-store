@@ -35,8 +35,8 @@ class OrderControllerTests extends AbstractIT {
                            "items": [
                                {
                                    "code": "P200",
-                                   "name": "The Night Circus",
-                                   "price": 25.99,
+                                   "name": "The Starless Sea",
+                                   "price": 199.99,
                                    "quantity": 1
                                }
                            ]
