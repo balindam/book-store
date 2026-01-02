@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       working-directory: ./catalog-service
+      DOCKER_IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/bookstore-catalog-service
     defaults:
       run:
         working-directory: ${{ env.working-directory }}
-        DOCKER_IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/bookstore-catalog-service
     steps:
       - uses: actions/checkout@v4
       - name: Setup Java 21
