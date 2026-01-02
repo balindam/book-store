@@ -34,7 +34,7 @@ class ProductRepositoryTest {
         assertThat(product.getName()).isEqualTo("The Night Circus");
         assertThat(product.getDescription())
                 .isEqualTo("The Circus arrives without warning… but it will leave you changed forever.");
-        assertThat(product.getPrice()).isEqualTo(new BigDecimal("25.99"));
+        assertThat(product.getPrice()).isEqualTo(new BigDecimal("26.99"));
     }
 
     @Test
