@@ -36,7 +36,7 @@ class OrderControllerTests extends AbstractIT {
                                {
                                    "code": "P200",
                                    "name": "The Starless Sea",
-                                   "price": 199.99,
+                                   "price": 25.99,
                                    "quantity": 1
                                }
                            ]
