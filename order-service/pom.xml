@@ -32,6 +32,8 @@
 		<dockerImageName>balindambajpai/bookstore-${project.artifactId}</dockerImageName>
 		<instancio.version>5.4.1</instancio.version>
 		<resilience4j.version>2.3.0</resilience4j.version>
+		<wiremock.version>3.13.2</wiremock.version>
+		<wiremock-testcontainers.version>1.0-alpha-15</wiremock-testcontainers.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -128,6 +130,19 @@
 			<groupId>io.github.resilience4j</groupId>
 			<artifactId>resilience4j-spring-boot3</artifactId>
 			<version>${resilience4j.version}</version>
+		</dependency>
+<!--	For running integration test	-->
+		<dependency>
+			<groupId>org.wiremock</groupId>
+			<artifactId>wiremock-standalone</artifactId>
+			<version>${wiremock.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.wiremock.integrations.testcontainers</groupId>
+			<artifactId>wiremock-testcontainers-module</artifactId>
+			<version>${wiremock-testcontainers.version}</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
