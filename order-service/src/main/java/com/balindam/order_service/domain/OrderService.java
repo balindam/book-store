@@ -2,10 +2,15 @@ package com.balindam.order_service.domain;
 
 import com.balindam.order_service.domain.models.CreateOrderRequest;
 import com.balindam.order_service.domain.models.CreateOrderResponse;
+import com.balindam.order_service.domain.models.OrderDTO;
+import com.balindam.order_service.domain.models.OrderSummary;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -27,5 +32,14 @@ public class OrderService {
         OrderEntity savedOrder = orderRepository.save(newOrder);
         log.info("Created Order with order number: {}", savedOrder.getOrderNumber());
         return new CreateOrderResponse(savedOrder.getOrderNumber());
+    }
+
+    public List<OrderSummary> findOrders(String userName) {
+        return orderRepository.findByUserName(userName);
+    }
+
+    public Optional<OrderDTO> findUserOrder(String userName, String orderNumber) {
+        return orderRepository.findByUserNameAndOrderNumber(userName, orderNumber)
+                .map(OrderMapper::convertToDTO);
     }
 }
