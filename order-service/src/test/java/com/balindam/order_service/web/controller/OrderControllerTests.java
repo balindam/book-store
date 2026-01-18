@@ -108,7 +108,7 @@ class OrderControllerTests extends AbstractIT {
                     .then()
                     .statusCode(200)
                     .body("orderNumber", is(orderNumber))
-                    .body("items.size()", is("2"));
+                    .body("items.size()", is(2));
         }
     }
 }
