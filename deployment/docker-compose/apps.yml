@@ -1,7 +1,7 @@
 name: 'book-store'
 services:
   catalog-service:
-    image: balindam/bookstore-catalog-service
+    image: balindambajpai/bookstore-catalog-service
     container_name: catalog-service
     environment:
       - SPRING_PROFILES_ACTIVE=docker
@@ -20,7 +20,7 @@ services:
           memory: 700m
 
   order-service:
-    image: balindam/bookstore-order-service
+    image: balindambajpai/bookstore-order-service
     container_name: order-service
     environment:
       - SPRING_PROFILES_ACTIVE=docker

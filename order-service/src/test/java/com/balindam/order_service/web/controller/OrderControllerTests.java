@@ -12,7 +12,6 @@ import io.restassured.common.mapper.TypeRef;
 import io.restassured.http.ContentType;
 import java.math.BigDecimal;
 import java.util.List;
-
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
@@ -108,7 +107,7 @@ class OrderControllerTests extends AbstractIT {
                     .get("/api/orders/{orderNumber}", orderNumber)
                     .then()
                     .statusCode(200)
-                    .body("orderNumber",  is(orderNumber))
+                    .body("orderNumber", is(orderNumber))
                     .body("items.size()", is("2"));
         }
     }
