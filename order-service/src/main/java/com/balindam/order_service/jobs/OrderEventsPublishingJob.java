@@ -2,6 +2,8 @@ package com.balindam.order_service.jobs;
 
 import com.balindam.order_service.domain.OrderEventService;
 import java.time.Instant;
+
+import net.javacrumbs.shedlock.core.LockAssert;
 import net.javacrumbs.shedlock.spring.annotation.SchedulerLock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +23,7 @@ public class OrderEventsPublishingJob {
     @Scheduled(cron = "${orders.publish-order-events-job-cron}")
     @SchedulerLock(name = "publishOrderEvents")
     public void publishOrderEvents() {
+        LockAssert.assertLocked();
         log.info("Publishing Order Events at {}", Instant.now());
         orderEventService.publishOrderEvents();
     }

@@ -1,5 +1,6 @@
 package com.balindam.order_service.domain;
 
+import com.balindam.order_service.domain.models.OrderStatus;
 import com.balindam.order_service.domain.models.OrderSummary;
 import java.util.List;
 import java.util.Optional;
@@ -23,4 +24,14 @@ interface OrderRepository extends JpaRepository<OrderEntity, Long> {
             WHERE o.userName = :userName AND o.orderNumber = :orderNumber
             """)
     Optional<OrderEntity> findByUserNameAndOrderNumber(String userName, String orderNumber);
+
+    List<OrderEntity> findByStatus(OrderStatus status);
+
+    Optional<OrderEntity> findByOrderNumber(String orderNumber);
+
+    default void updateOrderStatus(String orderNumber, OrderStatus status) {
+        OrderEntity order = this.findByOrderNumber(orderNumber).orElseThrow();
+        order.setStatus(status);
+        this.save(order);
+    }
 }
