@@ -1,7 +1,6 @@
 package com.balindam.order_service.domain;
 
 import com.balindam.order_service.domain.models.*;
-
 import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
@@ -16,8 +15,7 @@ public class OrderEventMapper {
                 getOrderItems(order),
                 order.getCustomer(),
                 order.getDeliveryAddress(),
-                LocalDateTime.now()
-        );
+                LocalDateTime.now());
     }
 
     static OrderDeliveredEvent buildOrderDeliveredEvent(OrderEntity order) {

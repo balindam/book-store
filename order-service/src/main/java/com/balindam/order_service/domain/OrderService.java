@@ -1,7 +1,6 @@
 package com.balindam.order_service.domain;
 
 import com.balindam.order_service.domain.models.*;
-
 import java.util.List;
 import java.util.Optional;
 import org.slf4j.Logger;

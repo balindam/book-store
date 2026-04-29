@@ -4,12 +4,11 @@ import com.balindam.order_service.domain.models.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.transaction.Transactional;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @Transactional
@@ -20,8 +19,10 @@ public class OrderEventService {
     private final OrderEventPublisher orderEventPublisher;
     private final ObjectMapper objectMapper;
 
-    OrderEventService(OrderEventRepository orderEventRepository, OrderEventPublisher orderEventPublisher,
-                      ObjectMapper objectMapper) {
+    OrderEventService(
+            OrderEventRepository orderEventRepository,
+            OrderEventPublisher orderEventPublisher,
+            ObjectMapper objectMapper) {
         this.orderEventRepository = orderEventRepository;
         this.orderEventPublisher = orderEventPublisher;
         this.objectMapper = objectMapper;
@@ -41,7 +42,7 @@ public class OrderEventService {
         Sort sort = Sort.by("createdAt").ascending();
         List<OrderEventEntity> events = orderEventRepository.findAll(sort);
         log.info("Found {} Order Events to be published", events.size());
-        for(OrderEventEntity event : events) {
+        for (OrderEventEntity event : events) {
             this.publishEvent(event);
             orderEventRepository.delete(event);
         }

@@ -2,7 +2,6 @@ package com.balindam.order_service.domain;
 
 import com.balindam.order_service.domain.models.OrderEventType;
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 
 @Entity
