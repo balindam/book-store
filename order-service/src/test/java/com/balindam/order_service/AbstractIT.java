@@ -16,7 +16,7 @@ import org.springframework.test.context.DynamicPropertySource;
 import org.wiremock.integrations.testcontainers.WireMockContainer;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@Import(TestcontainersConfiguration.class)
+@Import(ContainersConfig.class)
 public abstract class AbstractIT {
     @LocalServerPort
     int port;

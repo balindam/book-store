@@ -34,6 +34,7 @@
 		<resilience4j.version>2.3.0</resilience4j.version>
 		<wiremock.version>3.13.2</wiremock.version>
 		<wiremock-testcontainers.version>1.0-alpha-15</wiremock-testcontainers.version>
+		<shedlock.version>6.10.0</shedlock.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -130,6 +131,16 @@
 			<groupId>io.github.resilience4j</groupId>
 			<artifactId>resilience4j-spring-boot3</artifactId>
 			<version>${resilience4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.javacrumbs.shedlock</groupId>
+			<artifactId>shedlock-spring</artifactId>
+			<version>${shedlock.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.javacrumbs.shedlock</groupId>
+			<artifactId>shedlock-provider-jdbc-template</artifactId>
+			<version>${shedlock.version}</version>
 		</dependency>
 <!--	For running integration test	-->
 		<dependency>

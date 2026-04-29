@@ -1,9 +1,7 @@
 package com.balindam.order_service.domain;
 
-import com.balindam.order_service.domain.models.CreateOrderRequest;
-import com.balindam.order_service.domain.models.CreateOrderResponse;
-import com.balindam.order_service.domain.models.OrderDTO;
-import com.balindam.order_service.domain.models.OrderSummary;
+import com.balindam.order_service.domain.models.*;
+
 import java.util.List;
 import java.util.Optional;
 import org.slf4j.Logger;
@@ -18,10 +16,12 @@ public class OrderService {
 
     private final OrderRepository orderRepository;
     private final OrderValidator orderValidator;
+    private final OrderEventService orderEventService;
 
-    OrderService(OrderRepository orderRepository, OrderValidator orderValidator) {
+    OrderService(OrderRepository orderRepository, OrderValidator orderValidator, OrderEventService orderEventService) {
         this.orderRepository = orderRepository;
         this.orderValidator = orderValidator;
+        this.orderEventService = orderEventService;
     }
 
     public CreateOrderResponse createOrder(String userName, CreateOrderRequest createOrderRequest) {
@@ -30,6 +30,8 @@ public class OrderService {
         newOrder.setUserName(userName);
         OrderEntity savedOrder = orderRepository.save(newOrder);
         log.info("Created Order with order number: {}", savedOrder.getOrderNumber());
+        OrderCreatedEvent orderCreatedEvent = OrderEventMapper.buildOrderCreatedEvent(savedOrder);
+        orderEventService.save(orderCreatedEvent);
         return new CreateOrderResponse(savedOrder.getOrderNumber());
     }
 
